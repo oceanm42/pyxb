@@ -19,7 +19,8 @@ import re
 import os
 import errno
 import pyxb
-from pyxb.utils.six.moves.urllib import parse as urlparse
+# from pyxb.utils.six.moves.urllib import parse as urlparse
+from urllib import parse as urlparse
 import time
 import datetime
 import logging
