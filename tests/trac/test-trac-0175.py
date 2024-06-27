@@ -8,7 +8,7 @@ import pyxb.utils.domutils
 import operator
 import functools
 from xml.dom import Node
-from pyxb.utils.six.moves import xrange
+# from pyxb.utils.six.moves import xrange
 
 import os.path
 xsd='''<?xml version="1.0" encoding="UTF-8"?>
@@ -57,10 +57,10 @@ class TestTrac0175 (unittest.TestCase):
         self.assertEqual(c.value(), 2)
         instance = eSTs(1,2,3,4)
         self.assertEqual(4, len(instance.eST))
-        self.assertTrue(functools.reduce(operator.iand, map(lambda _i: operator.eq(1+_i, instance.eST[_i]), xrange(len(instance.eST))), True))
+        self.assertTrue(functools.reduce(operator.iand, map(lambda _i: operator.eq(1+_i, instance.eST[_i]), range(len(instance.eST))), True))
         instance = eCTs(1,2,3,4)
         self.assertEqual(4, len(instance.eCT))
-        self.assertTrue(functools.reduce(operator.iand, map(lambda _i: operator.eq(1+_i, instance.eCT[_i].value()), xrange(len(instance.eCT))), True))
+        self.assertTrue(functools.reduce(operator.iand, map(lambda _i: operator.eq(1+_i, instance.eCT[_i].value()), range(len(instance.eCT))), True))
 
 if __name__ == '__main__':
     unittest.main()
