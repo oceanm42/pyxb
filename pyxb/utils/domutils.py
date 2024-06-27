@@ -24,7 +24,7 @@ import pyxb.namespace.resolution
 import pyxb.utils.saxutils
 import pyxb.utils.saxdom
 from pyxb.utils import six
-from pyxb.utils.six.moves import xrange
+# from pyxb.utils.six.moves import xrange
 
 _log = logging.getLogger(__name__)
 
@@ -536,7 +536,7 @@ class BindingDOMSupport (object):
             (ns_uri, node_name) = self._makeURINodeNamePair(node)
             clone_node = docnode.createElementNS(ns_uri, node_name)
             attrs = node.attributes
-            for ai in xrange(attrs.length):
+            for ai in range(attrs.length):  # changed from xrange
                 clone_node.setAttributeNodeNS(self._deepClone(attrs.item(ai), docnode))
             for child in node.childNodes:
                 clone_node.appendChild(self._deepClone(child, docnode))
