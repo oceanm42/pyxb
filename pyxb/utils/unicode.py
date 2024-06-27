@@ -36,7 +36,7 @@ import re
 import logging
 import pyxb.utils.utility
 from pyxb.utils import six
-from pyxb.utils.six.moves import xrange
+# from pyxb.utils.six.moves import xrange
 
 _log = logging.getLogger(__name__)
 
@@ -254,7 +254,7 @@ class CodePointSet (object):
 
         rv = []
         start = None
-        for ri in xrange(len(self.__codepoints)):
+        for ri in range(len(self.__codepoints)):  # changed from xrange
             if start is not None:
                 rv.append( (start, self.__codepoints[ri]-1) )
                 start = None
